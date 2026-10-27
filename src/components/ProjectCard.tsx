@@ -20,7 +20,7 @@ export default function ProjectCard({ title, location, image, href, category }: 
       </div>
       
       {/* Overlay Content */}
-      <div className="absolute inset-0 bg-gradient-to-t from-text-strong/80 via-transparent to-transparent flex items-end">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end">
         <div className="p-6 text-bg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
           <span className="text-sm font-medium text-accent-sand bg-accent-sand/20 px-3 py-1 rounded-full">
             {category}

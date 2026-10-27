@@ -56,7 +56,7 @@ export default {
         },
       }),
       colors: {
-        // Bradford Remodels Brand Colors
+        // Upscale Coatings — #1a1a1a, #33333380, #d7b047
         bg: {
           DEFAULT: "hsl(var(--bg))",
           alt: "hsl(var(--bg-alt))",
@@ -113,6 +113,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      borderColor: {
+        DEFAULT: "hsl(var(--border))",
       },
       borderRadius: {
         lg: "var(--radius)",

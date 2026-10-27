@@ -24,36 +24,30 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 // Using gallery images instead of assets
-const heroKitchen = "/fox-croft-photos/05-Foxcroft Rd NW-5.jpg";
-const bathroomProject = "/avondale/1224 Avondale Ave SE High Res_05.jpg";
-const livingRoomProject = "/fox-croft-photos/12-Foxcroft Rd NW-12.jpg";
-
-// services section removed
-
 const featuredProjects = [
   {
-    title: "Fox Croft (New Construction)",
-    location: "Atlanta, GA",
-    size: "New Build",
-    image: "/fox-croft-photos/01-Foxcroft Rd NW-1.jpg",
-    description: "Custom new construction residence featuring indoor-outdoor living and a Neptune spa pool.",
+    title: "Sugar House Garage",
+    location: "Salt Lake City, UT",
+    size: "Flake System",
+    image: "/upscale-coatings/custom-garage-floor-epoxy.png",
+    description: "Full-broadcast flake epoxy with crack repair and a gloss topcoat.",
     link: "/projects/fox-croft"
   },
   {
-    title: "Stone Creek Interior (New Construction)",
-    location: "Woodstock, GA",
-    size: "New Build",
-    image: "/project-stone-creek/205 Stone Creek Ct High Res_01.jpg",
-    description: "Luxury custom home on nearly two acres with chef's kitchen and terrace-level entertainment space.",
-    link: "/projects/stone-creek"
+    title: "South Jordan Flake",
+    location: "South Jordan, UT",
+    size: "Flake System",
+    image: "/upscale-coatings/gallery-images/Garage(2).jpg",
+    description: "A lighter flake blend finished so oil and winter salt wipe up.",
+    link: "/projects/avondale"
   },
   {
-    title: "Avondale Residence (New Construction)",
-    location: "Atlanta, GA",
-    size: "New Build",
-    image: "/avondale/1224 Avondale Ave SE High Res_01.jpg",
-    description: "Modern luxury new build featuring spa-inspired master bath and custom built-ins throughout.",
-    link: "/projects/avondale"
+    title: "Lehi Shop Floor",
+    location: "Lehi, UT",
+    size: "Industrial",
+    image: "/upscale-coatings/industrial-floor-coatings.png",
+    description: "A shop coating built for tools, tires, and daily cleanup.",
+    link: "/projects/anderson-basement"
   }
 ];
 
@@ -66,30 +60,30 @@ const featuredProjects = [
 const categories = [
   {
     icon: <Home size={40} />,
-    title: "Fox Croft",
-    location: "Atlanta, GA",
-    description: "Custom new build with seamless indoor–outdoor living and luxurious Neptune spa pool.",
-    details: "This stunning modern farmhouse showcases expansive floor-to-ceiling windows, a chef's kitchen with premium appliances, and thoughtfully designed entertaining spaces. Custom millwork and high-end finishes throughout create an atmosphere of refined elegance and comfort.",
-    image: "/fox-croft-photos/01-Foxcroft Rd NW-1.jpg",
+    title: "Sugar House Garage",
+    location: "Salt Lake City, UT",
+    description: "Full-broadcast flake that hides the old slab and shrugs off salt.",
+    details: "Diamond ground, cracks filled, then a full flake broadcast and a chemical-resistant topcoat. The garage went from stained concrete to a floor you can sweep in a minute.",
+    image: "/upscale-coatings/gallery-images/Garage.jpg",
     link: "/projects/fox-croft"
   },
   {
     icon: <Home size={40} />,
-    title: "Stone Creek Interior",
-    location: "Woodstock, GA",
-    description: "Luxury custom home on nearly two acres with gourmet kitchen and entertainment suite.",
-    details: "Nestled on a private wooded lot, this residence features expansive living spaces designed for both intimate gatherings and grand entertaining. The chef's kitchen flows seamlessly into open living areas, while premium finishes define every detail.",
-    image: "/project-stone-creek/205 Stone Creek Ct High Res_01.jpg",
-    link: "/projects/stone-creek"
+    title: "South Jordan Flake",
+    location: "South Jordan, UT",
+    description: "A lighter blend with overhead storage still in the plan.",
+    details: "The coating went in around how the garage is actually used — parking, storage, and the occasional project. Oil beads up. Winter grit does not stain the concrete underneath.",
+    image: "/upscale-coatings/gallery-images/Garage(3).jpg",
+    link: "/projects/avondale"
   },
   {
     icon: <Home size={40} />,
-    title: "Avondale Residence",
-    location: "Atlanta, GA",
-    description: "Modern luxury new build with spa-inspired master suite and integrated smart home systems.",
-    details: "Contemporary elegance meets functional design in this meticulously crafted home. Custom built-ins and thoughtful storage solutions maximize both beauty and practicality throughout, while high-end finishes create a sophisticated living environment.",
-    image: "/avondale-cover.JPG",
-    link: "/projects/avondale"
+    title: "Lehi Shop Floor",
+    location: "Lehi, UT",
+    description: "An industrial coating for tools, tires, and daily cleanup.",
+    details: "Shops take more abuse than a two-car garage. This floor was built for that: a tougher build, a slip-conscious finish, and a cure window scheduled around the workday.",
+    image: "/upscale-coatings/gallery-images/Industrial%20Space.png",
+    link: "/projects/anderson-basement"
   }
 ];
 
@@ -305,24 +299,24 @@ export default function NewConstruction() {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(/new-construction-hero.jpg)`,
+            backgroundImage: `url(/upscale-coatings/custom-garage-floor-epoxy.png)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-text-strong/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         {/* Text at bottom left - aligned with navbar */}
         <div className="absolute bottom-20 md:bottom-28 lg:bottom-32 left-0 right-0 z-10">
           <div className="w-[80%] mx-auto">
             <h1 className="text-white leading-tight mb-6" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Distinctive</div>
-              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic">Custom Homes</div>
+              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Garage</div>
+              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic">Floor Epoxy</div>
             </h1>
-            <p className="text-white/90 text-lg md:text-xl lg:text-2xl mb-6 max-w-xl">Architect‑led builds with premium materials and precise execution.</p>
+            <p className="text-white/90 text-lg md:text-xl lg:text-2xl mb-6 max-w-xl">Flake systems ground, repaired, and topcoated for Utah garages.</p>
             <Link to="/contact" onClick={() => {
               setTimeout(() => {
                 const formElement = document.getElementById('contact-form');
@@ -331,8 +325,8 @@ export default function NewConstruction() {
                 }
               }, 100);
             }}>
-              <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-white/90 transition-colors">
-                Schedule Your Private Consultation
+              <button className="bg-accent-primary text-[#1a1a1a] px-6 py-3 rounded-full font-medium hover:bg-accent-primary-hover transition-colors">
+                Request a Free Quote
               </button>
             </Link>
           </div>
@@ -347,7 +341,7 @@ export default function NewConstruction() {
           aria-hidden
         >
           <div 
-            className="absolute left-1/2 font-bold text-text-strong/10 whitespace-nowrap"
+            className="absolute left-1/2 font-bold text-accent-primary/15 whitespace-nowrap"
             style={{
               top: '60%',
               fontSize: '16vw',
@@ -356,7 +350,7 @@ export default function NewConstruction() {
               transform: `translate(-50%, -50%) translateX(${categoriesScrollProgress * categoriesMaxOffset * 1.6}px) scaleX(0.92)`
             }}
           >
-            NEW BUILDS
+            EPOXY
           </div>
         </div>
         <div ref={categoriesContainerRef} className="w-[80%] mx-auto">
@@ -368,12 +362,12 @@ export default function NewConstruction() {
           >
             <div className="flex items-end justify-between gap-6">
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text-strong">
-                <span className="block">New Builds</span>
+                <span className="block">Garage Floors</span>
               </h2>
               <div className="relative max-w-md text-right">
                 <div className="pt-2 pl-6">
-                  <span className="block text-xl md:text-2xl text-text leading-tight">Browse recent new</span>
-                  <span className="block text-xl md:text-2xl text-text leading-tight">construction masterpieces.</span>
+                  <span className="block text-xl md:text-2xl text-text leading-tight">Recent flake installs</span>
+                  <span className="block text-xl md:text-2xl text-text leading-tight">along the Wasatch Front.</span>
                 </div>
               </div>
             </div>
@@ -388,7 +382,7 @@ export default function NewConstruction() {
             {categories.map((category, index) => (
               <div
                 key={index}
-                className={`group transition-all duration-700 bg-white border border-black p-3 flex flex-col ${
+                className={`group transition-all duration-700 bg-[#333333] border border-[#33333380] p-3 flex flex-col ${
                   categoriesSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}
                 style={{
@@ -430,7 +424,7 @@ export default function NewConstruction() {
                     to={(category as any).link ?? "/gallery"}
                     className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity"
                   >
-                    <div className="w-4 h-4 border-2 border-text-strong bg-transparent"></div>
+                    <div className="w-4 h-4 border-2 border-accent-primary bg-transparent"></div>
                     <span className="text-sm font-medium uppercase tracking-wide">View Full Project</span>
                   </Link>
                 </div>
@@ -443,25 +437,25 @@ export default function NewConstruction() {
       </section>
 
       {/* Inspired Design & Architecture Section */}
-      <section className="py-20 text-white relative overflow-hidden" style={{ backgroundColor: '#1A120A' }}>
+      <section className="py-20 text-white relative overflow-hidden" style={{ backgroundColor: '#333333' }}>
         {/* Background image */}
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(/bradford-method-bg.png)`,
+            backgroundImage: `url(/upscale-coatings/gallery-images/Garage.jpg)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
           }}
         />
         {/* Dark overlay */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(26, 18, 10, 0.85)' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(26, 26, 26, 0.82)' }} />
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Timeline */}
           <div className="relative">
             {/* Vertical line - desktop only, extends to last circle */}
-            <div className="hidden md:block absolute left-[60px] top-[60px] bottom-[60px] w-0.5" style={{ backgroundColor: '#E8DCC8' }} />
+            <div className="hidden md:block absolute left-[60px] top-[60px] bottom-[60px] w-0.5" style={{ backgroundColor: '#d7b047' }} />
 
             {/* Timeline Steps */}
             <div ref={journeyRef} className="space-y-16">
@@ -470,7 +464,7 @@ export default function NewConstruction() {
                 {/* Icon Circle */}
                 <div 
                   className="flex-shrink-0 w-[120px] h-[120px] rounded-full flex items-center justify-center relative z-10"
-                  style={{ backgroundColor: '#E8DCC8' }}
+                  style={{ backgroundColor: '#d7b047' }}
                 >
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black icon-svg">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -483,10 +477,10 @@ export default function NewConstruction() {
                 {/* Content */}
                 <div className="flex-1 pt-4 journey-content">
                   <h3 className="text-3xl md:text-4xl mb-4 text-white italic" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                    Consultation
+                    Color and Scope
                   </h3>
                   <p className="text-white/90 text-lg leading-relaxed">
-                    We begin by understanding your vision, lifestyle, and budget to set clear expectations and build a transparent foundation for your custom home.
+                    We measure the garage, check cracks and moisture, and pick a flake blend. You see the price and the cure window before we book the day.
                   </p>
                 </div>
               </div>
@@ -496,7 +490,7 @@ export default function NewConstruction() {
                 {/* Icon Circle */}
                 <div 
                   className="flex-shrink-0 w-[120px] h-[120px] rounded-full flex items-center justify-center relative z-10"
-                  style={{ backgroundColor: '#E8DCC8' }}
+                  style={{ backgroundColor: '#d7b047' }}
                 >
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black icon-svg">
                     <path d="M12 19l7-7 3 3-7 7-3-3z" />
@@ -509,10 +503,10 @@ export default function NewConstruction() {
                 {/* Content */}
                 <div className="flex-1 pt-4 journey-content">
                   <h3 className="text-3xl md:text-4xl mb-4 text-white italic" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                    Concept
+                    Grind and Repair
                   </h3>
                   <p className="text-white/90 text-lg leading-relaxed">
-                    Your ideas take form as we create preliminary designs balancing style, function, and budget to craft a personalized blueprint.
+                    The slab is diamond-ground and cracks are filled. This is the step that decides whether the floor is still stuck down in five years.
                   </p>
                 </div>
               </div>
@@ -522,7 +516,7 @@ export default function NewConstruction() {
                 {/* Icon Circle */}
                 <div 
                   className="flex-shrink-0 w-[120px] h-[120px] rounded-full flex items-center justify-center relative z-10"
-                  style={{ backgroundColor: '#E8DCC8' }}
+                  style={{ backgroundColor: '#d7b047' }}
                 >
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black icon-svg">
                     <rect x="3" y="3" width="7" height="7" />
@@ -535,10 +529,10 @@ export default function NewConstruction() {
                 {/* Content */}
                 <div className="flex-1 pt-4 journey-content">
                   <h3 className="text-3xl md:text-4xl mb-4 text-white italic" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                    Design Partner Integration
+                    Base Coat and Flake
                   </h3>
                   <p className="text-white/90 text-lg leading-relaxed">
-                    We collaborate seamlessly with top architects and designers to refine every detail, ensuring your home is both stunning and practical.
+                    Industrial epoxy goes down, then decorative flake is broadcast full or partial while the base is still open. That is what gives the floor its texture and hide.
                   </p>
                 </div>
               </div>
@@ -548,7 +542,7 @@ export default function NewConstruction() {
                 {/* Icon Circle */}
                 <div 
                   className="flex-shrink-0 w-[120px] h-[120px] rounded-full flex items-center justify-center relative z-10"
-                  style={{ backgroundColor: '#E8DCC8' }}
+                  style={{ backgroundColor: '#d7b047' }}
                 >
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black icon-svg">
                     <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9" />
@@ -560,10 +554,10 @@ export default function NewConstruction() {
                 {/* Content */}
                 <div className="flex-1 pt-4 journey-content">
                   <h3 className="text-3xl md:text-4xl mb-4 text-white italic" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                    Build & Collaborate
+                    Clear Topcoat
                   </h3>
                   <p className="text-white/90 text-lg leading-relaxed">
-                    Our expert team brings your vision to life with precision craftsmanship and proactive communication from foundation to finish.
+                    A UV-stable polyaspartic or polyurethane topcoat locks the flake in and takes the hot tires, oil, and road salt.
                   </p>
                 </div>
               </div>
@@ -573,7 +567,7 @@ export default function NewConstruction() {
                 {/* Icon Circle */}
                 <div 
                   className="flex-shrink-0 w-[120px] h-[120px] rounded-full flex items-center justify-center relative z-10"
-                  style={{ backgroundColor: '#E8DCC8' }}
+                  style={{ backgroundColor: '#d7b047' }}
                 >
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black icon-svg">
                     <polyline points="20 6 9 17 4 12" />
@@ -583,10 +577,10 @@ export default function NewConstruction() {
                 {/* Content */}
                 <div className="flex-1 pt-4 journey-content">
                   <h3 className="text-3xl md:text-4xl mb-4 text-white italic" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                    Final Walkthrough
+                    Cure Window
                   </h3>
                   <p className="text-white/90 text-lg leading-relaxed">
-                    We conduct a thorough review to ensure flawless quality, address final adjustments, and guarantee your complete satisfaction before handover.
+                    We walk the floor with you and tell you when feet can return and when the cars can. Most garages are a one- to two-day install.
                   </p>
                 </div>
               </div>
@@ -606,10 +600,10 @@ export default function NewConstruction() {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-text-strong mb-4">
-              Signature Residences
+              Recent Garages
             </h2>
             <p className="text-xl text-text">
-              Browse recent new construction masterpieces.
+              Flake and shop floors from recent installs.
             </p>
           </div>
         </div>
@@ -639,7 +633,7 @@ export default function NewConstruction() {
               />
               
               {/* Gradient overlay (ignore pointer events so content beneath is clickable) */}
-              <div className="absolute inset-0 bg-gradient-to-t from-text-strong via-text-strong/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none" />
 
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-8">
@@ -681,58 +675,52 @@ export default function NewConstruction() {
       <section className="py-24 bg-bg">
         <div className="w-[80%] max-w-4xl mx-auto">
           <div className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-normal text-text-strong">FAQ: Luxury Homebuilding</h2>
+            <h2 className="text-4xl md:text-5xl font-normal text-text-strong">FAQ: Garage Epoxy</h2>
           </div>
 
           <Accordion type="single" defaultValue="faq-1" collapsible className="space-y-6">
             <AccordionItem value="faq-1" className="border-none">
-              <AccordionTrigger className="[&>svg]:hidden bg-[#1A120A] text-white px-6 py-5 font-normal hover:no-underline [&[data-state=open]_.icon-plus]:hidden [&[data-state=open]_.icon-minus]:block">
+              <AccordionTrigger className="[&>svg]:hidden bg-[#d7b047] text-[#1a1a1a] px-6 py-5 font-normal hover:no-underline [&[data-state=open]_.icon-plus]:hidden [&[data-state=open]_.icon-minus]:block">
                 <div className="flex items-center gap-3">
-                  <span className="text-white">
+                  <span className="text-[#1a1a1a]">
                     <Plus className="icon-plus w-5 h-5" />
                     <Minus className="icon-minus w-5 h-5 hidden" />
                   </span>
-                  <span className="italic text-base md:text-lg">How long does a custom home build typically take?</span>
+                  <span className="italic text-base md:text-lg">How long does a garage floor take?</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="bg-white text-text px-6 py-6 border text-base md:text-lg" style={{ borderColor: '#D1D5DB' }}>
-                Timelines vary by size and complexity, but most of our luxury builds
-                range from 10–16 months once permits are in place. We provide clear
-                milestones and proactive updates throughout.
+              <AccordionContent className="bg-[#333333] text-text px-6 py-6 border text-base md:text-lg" style={{ borderColor: '#33333380' }}>
+                Most residential garages are a one- to two-day install. Foot traffic is usually fine within a day. Vehicles wait for the cure window we give you, often about 72 hours.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="faq-2" className="border-none">
-              <AccordionTrigger className="[&>svg]:hidden bg-[#1A120A] text-white px-6 py-5 font-normal hover:no-underline [&[data-state=open]_.icon-plus]:hidden [&[data-state=open]_.icon-minus]:block">
+              <AccordionTrigger className="[&>svg]:hidden bg-[#d7b047] text-[#1a1a1a] px-6 py-5 font-normal hover:no-underline [&[data-state=open]_.icon-plus]:hidden [&[data-state=open]_.icon-minus]:block">
                 <div className="flex items-center gap-3">
-                  <span className="text-white">
+                  <span className="text-[#1a1a1a]">
                     <Plus className="icon-plus w-5 h-5" />
                     <Minus className="icon-minus w-5 h-5 hidden" />
                   </span>
-                  <span className="italic text-base md:text-lg">Do you help with design and selections?</span>
+                  <span className="italic text-base md:text-lg">Can you coat concrete that is already stained or cracked?</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="bg-white text-text px-6 py-6 border text-base md:text-lg" style={{ borderColor: '#D1D5DB' }}>
-                Yes. We collaborate with top architects and interior designers, and
-                guide you through every selection—from layouts and elevations to
-                finishes and smart-home systems—so the result matches your lifestyle.
+              <AccordionContent className="bg-[#333333] text-text px-6 py-6 border text-base md:text-lg" style={{ borderColor: '#33333380' }}>
+                Yes. We grind off contamination, fill cracks, and prime for moisture. Flake hides a lot of what the old slab looked like. If the concrete is failing structurally, we will say so before we coat it.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem value="faq-3" className="border-none">
-              <AccordionTrigger className="[&>svg]:hidden bg-[#1A120A] text-white px-6 py-5 font-normal hover:no-underline [&[data-state=open]_.icon-plus]:hidden [&[data-state=open]_.icon-minus]:block">
+              <AccordionTrigger className="[&>svg]:hidden bg-[#d7b047] text-[#1a1a1a] px-6 py-5 font-normal hover:no-underline [&[data-state=open]_.icon-plus]:hidden [&[data-state=open]_.icon-minus]:block">
                 <div className="flex items-center gap-3">
-                  <span className="text-white">
+                  <span className="text-[#1a1a1a]">
                     <Plus className="icon-plus w-5 h-5" />
                     <Minus className="icon-minus w-5 h-5 hidden" />
                   </span>
-                  <span className="italic text-base md:text-lg">How do you ensure quality during construction?</span>
+                  <span className="italic text-base md:text-lg">Will it handle Utah winters and road salt?</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="bg-white text-text px-6 py-6 border text-base md:text-lg" style={{ borderColor: '#D1D5DB' }}>
-                We use vetted trades, premium materials, and a rigorous inspection
-                process at each stage. Your project manager provides site photos,
-                checklists, and regular walkthroughs to verify craftsmanship.
+              <AccordionContent className="bg-[#333333] text-text px-6 py-6 border text-base md:text-lg" style={{ borderColor: '#33333380' }}>
+                That is the point of the system. A chemical-resistant base and a UV-stable topcoat are chosen for freeze-thaw, de-icing salt, and hot tires. Cheap one-day kits are what peel.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -742,7 +730,7 @@ export default function NewConstruction() {
               to="/contact"
               className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity"
             >
-              <div className="w-4 h-4 border-2 border-text-strong bg-transparent"></div>
+              <div className="w-4 h-4 border-2 border-accent-primary bg-transparent"></div>
               <span className="text-sm font-medium uppercase tracking-wide">Ask a Question</span>
             </Link>
           </div>
@@ -750,25 +738,25 @@ export default function NewConstruction() {
       </section>
 
       {/* Ready to Build CTA (from Remodel page) */}
-      <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#1A120A' }}>
+      <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#333333' }}>
         <div className="w-[80%] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-start gap-10">
             {/* Left: Big two-line headline */}
             <div className="lg:col-span-8">
               <h2 className="text-white leading-tight" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Ready to Build</span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl italic mt-2">Your Dream Home?</span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Ready for a</span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl italic mt-2">Garage You Show Off?</span>
               </h2>
             </div>
 
             {/* Right: Supporting copy */}
             <div className="lg:col-span-4">
               <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8">
-                Let's discuss your vision and bring it to<br />life with uncompromising quality.
+                Send the size and a photo of the slab.<br />We'll price the system and a date.
               </p>
               
-              <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full px-6 py-5 text-base md:text-lg font-medium">
-                <Link to="/contact">Schedule Consultation</Link>
+              <Button asChild className="bg-accent-primary text-[#1a1a1a] hover:bg-accent-primary-hover rounded-full px-6 py-5 text-base md:text-lg font-medium">
+                <Link to="/contact">Request a Quote</Link>
               </Button>
             </div>
           </div>

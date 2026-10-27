@@ -12,94 +12,90 @@ import {
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 // Using gallery images instead of assets
-const heroKitchen = "/fox-croft-photos/05-Foxcroft Rd NW-5.jpg";
-const bathroomProject = "/avondale/1224 Avondale Ave SE High Res_05.jpg";
-const livingRoomProject = "/fox-croft-photos/12-Foxcroft Rd NW-12.jpg";
-
 const featuredProjects = [
   {
-    category: "Basement Remodel",
-    title: "Renaissance",
-    location: "",
-    before: "/okun-photos/01-okun-1.jpg",
-    after: "/okun-photos/43-okun-43.jpg",
-    description: "Complete basement transformation featuring a custom bar, wellness spa with sauna and cold plunge, Cambria feature wall, and Bradford's signature C-shaped seating.",
-    testimonial: "Every detail was thoughtfully designed. The wellness space and theater are incredible.",
-    client: "Okun Residence",
-    href: "/projects/okun"
+    category: "Metallic Epoxy",
+    title: "Draper Metallic",
+    location: "Draper, UT",
+    before: "/upscale-coatings/metallic-2.png",
+    after: "/upscale-coatings/gallery-images/Metallic.jpg",
+    description: "A poured metallic floor with depth and movement, sealed under a clear topcoat for a show-space finish.",
+    testimonial: "Couldn’t be happier with how our garage floors turned out. The finish completely upgraded the space.",
+    client: "Grill Father",
+    href: "/projects/stone-creek"
   },
   {
-    category: "Basement Remodel",
-    title: "Post Oak Basement",
-    location: "Marietta, GA",
-    before: "/post-oak-cover.png",
-    after: "/post-oak-cover.png",
-    description: "Luxurious basement transformation with custom finishes, elegant design elements, and sophisticated entertaining spaces.",
-    testimonial: "The craftsmanship and attention to detail exceeded our expectations. Every element was perfectly executed.",
-    client: "Post Oak Residence",
+    category: "Waterproof Deck",
+    title: "Park City Deck",
+    location: "Park City, UT",
+    before: "/upscale-coatings/gallery-images/Outdoor%20Epoxy%20Pad.jpg",
+    after: "/upscale-coatings/gallery-images/Waterproof%20Deck.jpg",
+    description: "An outdoor coating that locks out meltwater and stays walkable through freeze-thaw season.",
+    testimonial: "These guys went above and beyond. Their process was seamless, prompt, and efficient.",
+    client: "Riley Nielsen",
     href: "/projects/post-oak-basement"
   },
   {
-    category: "Kitchen Remodel",
-    title: "Pharoah Kitchen",
-    location: "Marietta, GA",
-    before: "/pharoah-kitchen/103 American Pharoah Wy High Res_01.jpg",
-    after: "/pharoah-kitchen/103 American Pharoah Wy High Res_05.jpg",
-    description: "Stunning kitchen transformation featuring custom cabinetry, premium appliances, and sophisticated design elements that blend functionality with timeless elegance.",
-    testimonial: "The craftsmanship and attention to detail exceeded our expectations. Every element was perfectly executed.",
-    client: "Pharoah Residence",
+    category: "Commercial Floor",
+    title: "Murray Kitchen",
+    location: "Murray, UT",
+    before: "/upscale-coatings/commercial-kitchen-flooring.png",
+    after: "/upscale-coatings/commercial-epoxy-flooring.png",
+    description: "A chemical-resistant commercial floor built for grease, wash-downs, and daily foot traffic.",
+    testimonial: "They were prompt, professional, and did exceptional work. I’d definitely recommend them.",
+    client: "Shad Pace",
     href: "/projects/pharoah-kitchen"
   }
 ];
 
 const categories = [
   {
-    icon: <Wrench size={40} />,
-    title: "Kitchen Remodels",
-    count: "150+",
-    image: "/fox-croft-photos/09-Foxcroft Rd NW-9.jpg"
+    icon: <Paintbrush size={40} />,
+    title: "Metallic Epoxy",
+    count: "Custom",
+    image: "/upscale-coatings/gallery-images/Metallic.jpg"
   },
   {
-    icon: <Paintbrush size={40} />,
-    title: "Bathroom Transformations",
-    count: "200+",
-    image: "/remodel-bathroom.png"
+    icon: <Wrench size={40} />,
+    title: "Waterproof Decks",
+    count: "Outdoor",
+    image: "/upscale-coatings/waterproof-deck-coatings.png"
   },
   {
     icon: <Home size={40} />,
-    title: "Whole-Home Remodels",
-    count: "80+",
-    image: "/lee-circle-house.jpg"
+    title: "Basement Floors",
+    count: "Indoor",
+    image: "/upscale-coatings/basement-floor-coatings.png"
   },
   {
     icon: <Hammer size={40} />,
-    title: "Expansive Additions",
-    count: "120+",
-    image: "/fox-croft-photos/19-Foxcroft Rd NW-19.jpg"
+    title: "Commercial Floors",
+    count: "Heavy use",
+    image: "/upscale-coatings/industrial-floor-coatings.png"
   }
 ];
 
 const testimonials = [
   {
-    quote: "Bradford Custom Homes didn't just remodel our kitchen—they transformed how our family lives. The craftsmanship is exceptional, and their attention to our needs made all the difference.\n\nEvery detail was carefully considered, from the custom cabinetry to the premium finishes. The project was completed on time and exceeded our expectations in every way.",
-    client: "Amanda Richardson",
-    project: "Kitchen & Living Room Remodel",
+    quote: "I reached out to several companies for quotes, and Upscale Coatings was the only one that responded. They were prompt, professional, and did exceptional work. I’d definitely recommend them!",
+    client: "Shad Pace",
+    project: "Garage Floor",
     rating: 5,
-    image: heroKitchen
+    image: "/upscale-coatings/gallery-images/Garage.jpg"
   },
   {
-    quote: "From start to finish, the team was professional, responsive, and dedicated to perfection. Our bathroom is now a spa-like retreat we never want to leave.\n\nThe quality of workmanship is outstanding, and the design team helped us create exactly what we envisioned. We couldn't be happier with the results and would definitely work with Bradford again.",
-    client: "James Patterson",
-    project: "Master Bathroom Renovation",
+    quote: "Couldn’t be happier with how our garage floors turned out! The guys at Upscale Coatings were fast, professional, and detail-oriented — plus the finish completely upgraded the space. Beautiful work, great service, and a super professional team.",
+    client: "Grill Father",
+    project: "Garage Floor",
     rating: 5,
-    image: bathroomProject
+    image: "/upscale-coatings/custom-garage-floor-epoxy.png"
   },
   {
-    quote: "We've worked with several contractors, but Bradford stands out. Their commitment to quality and communication made our whole-home remodel a pleasant experience.\n\nThe project management was flawless, and they kept us informed every step of the way. The final result is beyond what we imagined, and we're thrilled with our new home.",
-    client: "Emily & Robert Davis",
-    project: "Whole Home Transformation",
+    quote: "These guys went above and beyond to take care of me. Their process was seamless. They are prompt and efficient, great to work with, and pretty cool if you ask me. I highly recommend them 10/10.",
+    client: "Riley Nielsen",
+    project: "Epoxy Floor",
     rating: 5,
-    image: livingRoomProject
+    image: "/upscale-coatings/gallery-images/Garage(2).jpg"
   },
 ];
 
@@ -321,14 +317,14 @@ export default function Remodel() {
 
   const getCategoryBlurb = (title: string): string => {
     switch (title) {
-      case "Kitchen Remodels":
-        return "Custom cabinetry, chef-ready layouts, and everyday durability.";
-      case "Bathroom Transformations":
-        return "Spa finishes, warm lighting, and tilework that actually lines up.";
-      case "Whole-Home Remodels":
-        return "Open flow, smarter storage, and details that tie every room together.";
-      case "Expansive Additions":
-        return "Seamless elevations, matched materials, and new open spaces.";
+      case "Metallic Epoxy":
+        return "Poured pigment with depth, movement, and a clear coat on top.";
+      case "Waterproof Decks":
+        return "Outdoor systems that keep meltwater off the structure underneath.";
+      case "Basement Floors":
+        return "Moisture-minded coatings that make a cold slab feel finished.";
+      case "Commercial Floors":
+        return "Shops, kitchens, and warehouses that need chemical resistance.";
       default:
         return "Thoughtful design, precise execution, and finishes that last.";
     }
@@ -342,24 +338,24 @@ export default function Remodel() {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(/remodel-hero.jpg)`,
+            backgroundImage: `url(/upscale-coatings/metallic-2.png)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-text-strong/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         {/* Text at bottom left - aligned with navbar */}
         <div className="absolute bottom-20 md:bottom-28 lg:bottom-32 left-0 right-0 z-10">
           <div className="w-[80%] mx-auto">
             <h1 className="text-white leading-tight mb-6" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Transform</div>
-              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic">Your Home</div>
+              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Coatings</div>
+              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic">Beyond the Garage</div>
             </h1>
-            <p className="text-white/90 text-lg md:text-xl lg:text-2xl mb-6 max-w-xl">From kitchens to additions—smarter layouts, better flow, lasting finishes.</p>
+            <p className="text-white/90 text-lg md:text-xl lg:text-2xl mb-6 max-w-xl">Metallic floors, waterproof decks, basements, and commercial slabs.</p>
             <Link to="/contact" onClick={() => {
               setTimeout(() => {
                 const formElement = document.getElementById('contact-form');
@@ -368,8 +364,8 @@ export default function Remodel() {
                 }
               }, 100);
             }}>
-              <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-white/90 transition-colors">
-                Schedule Your Private Consultation
+              <button className="bg-accent-primary text-[#1a1a1a] px-6 py-3 rounded-full font-medium hover:bg-accent-primary-hover transition-colors">
+                Request a Free Quote
               </button>
             </Link>
           </div>
@@ -396,7 +392,7 @@ export default function Remodel() {
                 </span>
               </h2>
               <div className="relative max-w-md text-right">
-                <div className="absolute -top-8 -left-10 md:-top-10 md:-left-12 text-6xl font-bold text-text-strong/10">+</div>
+                <div className="absolute -top-8 -left-10 md:-top-10 md:-left-12 text-6xl font-bold text-accent-primary/15">+</div>
                 <div className="pt-2 pl-6">
                   <span className="block text-xl md:text-2xl text-text leading-tight">Proof of our commitment</span>
                   <span className="block text-xl md:text-2xl text-text leading-tight">to excellence.</span>
@@ -459,7 +455,7 @@ export default function Remodel() {
               to="/gallery"
               className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity"
             >
-              <div className="w-4 h-4 border-2 border-text-strong bg-transparent"></div>
+              <div className="w-4 h-4 border-2 border-accent-primary bg-transparent"></div>
               <span className="text-sm font-medium uppercase tracking-wide">Explore Gallery</span>
             </Link>
           </div>
@@ -467,7 +463,7 @@ export default function Remodel() {
       </section>
 
       {/* Featured Projects - Diagonal Scroll Reveal */}
-      <section className="py-20 text-white relative overflow-hidden" style={{ backgroundColor: '#1A120A' }}>
+      <section className="py-20 text-white relative overflow-hidden" style={{ backgroundColor: '#333333' }}>
         {/* Animated grid background */}
         <div 
           className="absolute inset-0 opacity-5"
@@ -540,7 +536,7 @@ export default function Remodel() {
                     })()}px, 0, 0)`
                   }}
                 >
-                  <div className={`bg-white p-8 md:p-12 shadow-xl h-full w-full flex flex-col ${index % 2 === 0 ? 'rounded-r-2xl' : 'rounded-l-2xl'}`}>
+                  <div className={`bg-[#1a1a1a] p-8 md:p-12 shadow-xl h-full w-full flex flex-col ${index % 2 === 0 ? 'rounded-r-2xl' : 'rounded-l-2xl'}`}>
                     <div className="text-sm font-bold text-accent-primary mb-2 uppercase tracking-wider">
                       {project.category}
                 </div>
@@ -563,7 +559,7 @@ export default function Remodel() {
                       to={(project as any).href ?? "/gallery"}
                       className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity"
                     >
-                      <div className="w-4 h-4 border-2 border-text-strong bg-transparent"></div>
+                      <div className="w-4 h-4 border-2 border-accent-primary bg-transparent"></div>
                       <span className="text-sm font-medium uppercase tracking-wide">View Full Project</span>
                     </Link>
                   </div>
@@ -575,7 +571,7 @@ export default function Remodel() {
       </section>
 
       {/* Testimonials - New Design */}
-      <section className="py-20 text-black relative overflow-hidden" style={{ backgroundColor: '#FFF9F2' }}>
+      <section className="py-20 text-white relative overflow-hidden" style={{ backgroundColor: '#33333380' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div 
             ref={testimonialsSection.ref}
@@ -583,7 +579,7 @@ export default function Remodel() {
               testimonialsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               What Clients Say
             </h2>
           </div>
@@ -631,8 +627,8 @@ export default function Remodel() {
               
               {/* Client Info Below Card */}
               <div className="mt-4 text-center">
-                <p className="font-serif text-black text-lg font-semibold">{testimonial.client}</p>
-                <p className="text-black/70 text-sm">{testimonial.project}</p>
+                <p className="font-serif text-white text-lg font-semibold">{testimonial.client}</p>
+                <p className="text-white/70 text-sm">{testimonial.project}</p>
               </div>
             </div>
           ))}
@@ -641,25 +637,25 @@ export default function Remodel() {
       </section>
 
       {/* Final CTA - Brand Hero */}
-      <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#1A120A' }}>
+      <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#333333' }}>
         <div className="w-[80%] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-start gap-10">
             {/* Left: Big two-line headline */}
             <div className="lg:col-span-8">
               <h2 className="text-white leading-tight" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Ready to Build</span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl italic mt-2">Your Dream Home?</span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Ready to Coat</span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl italic mt-2">the Next Slab?</span>
               </h2>
             </div>
 
             {/* Right: Supporting copy */}
             <div className="lg:col-span-4">
               <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8">
-                Let's discuss your vision and bring it to<br />life with uncompromising quality.
+                Tell us the room, the square footage,<br />and how hard the floor gets used.
               </p>
               
-              <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full px-6 py-5 text-base md:text-lg font-medium">
-                <Link to="/contact">Schedule Consultation</Link>
+              <Button asChild className="bg-accent-primary text-[#1a1a1a] hover:bg-accent-primary-hover rounded-full px-6 py-5 text-base md:text-lg font-medium">
+                <Link to="/contact">Request a Quote</Link>
               </Button>
             </div>
           </div>

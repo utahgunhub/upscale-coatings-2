@@ -1,94 +1,128 @@
 import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
-import ServiceCard from "@/components/ServiceCard";
-import ProjectCard from "@/components/ProjectCard";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Link } from "react-router-dom";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { 
-  ChefHat, 
-  Bath, 
-  Home, 
-  Plus, 
-  Palette,
-  Star,
-  Quote
-} from "lucide-react";
-// Using gallery images instead of assets
-const bathroomProject = "/avondale/1224 Avondale Ave SE High Res_05.jpg";
-const livingRoomProject = "/fox-croft-photos/12-Foxcroft Rd NW-12.jpg";
-const heroKitchen = "/fox-croft-photos/05-Foxcroft Rd NW-5.jpg";
-
-const services = [
-  {
-    icon: <ChefHat size={32} />,
-    title: "Kitchen Remodeling",
-    description: "Transform your kitchen into the heart of your home with custom cabinetry, modern appliances, and thoughtful design.",
-    href: "/services",
-    image: heroKitchen
-  },
-  {
-    icon: <Bath size={32} />,
-    title: "Bathroom Renovation",
-    description: "Create your personal spa retreat with luxurious fixtures, custom tile work, and optimal functionality.",
-    href: "/services",
-    image: bathroomProject
-  },
-  {
-    icon: <Home size={32} />,
-    title: "Whole Home Remodel",
-    description: "Reimagine your entire living space with comprehensive renovation that maximizes comfort and style.",
-    href: "/services",
-    image: livingRoomProject
-  }
-];
-
-const featuredProjects = [
-  {
-    title: "Modern Farmhouse Kitchen",
-    location: "Atlanta, Georgia",
-    image: heroKitchen,
-    href: "/gallery",
-    category: "Kitchen"
-  },
-  {
-    title: "Spa-Inspired Bathroom",
-    location: "Charleston, South Carolina", 
-    image: bathroomProject,
-    href: "/gallery",
-    category: "Bathroom"
-  },
-  {
-    title: "Open Concept Living",
-    location: "Atlanta, Georgia",
-    image: livingRoomProject,
-    href: "/gallery", 
-    category: "Whole Home"
-  }
-];
 
 const whyChooseItems = [
   {
-    title: "Transparent & Frequent Communication",
+    title: "Prep That Actually Sticks",
     text:
-      "From preconstruction to project completion, we keep you informed every step of the way. Our proactive communication approach means no surprises, just clear updates, regular check ins, and immediate access to your project team whenever you need answers.",
+      "A coating is only as good as the concrete under it. We diamond-grind, repair cracks, and prime for moisture so the system bonds instead of peeling after the first Utah winter.",
   },
   {
-    title: "High-Touch Organization with White Glove Philosophy",
+    title: "Systems Built for This Climate",
     text:
-      "Experience a level of service that goes beyond construction. Our white glove approach means careful attention to every detail, organized workflows that respect your time and property, and a commitment to excellence that shows in every interaction.",
+      "Road salt, freeze-thaw, and high-altitude sun wreck cheap kits. We use industrial epoxy and UV-stable topcoats chosen for garages, shops, and outdoor slabs along the Wasatch Front.",
   },
   {
-    title: "Price Certainty You Can Trust",
+    title: "A Price You Can See Before We Start",
     text:
-      "The numbers we agree upon in preconstruction are the numbers you will pay at completion. No hidden fees, no unexpected costs, no budget creep. We honor our commitments and provide complete financial transparency from start to finish.",
+      "You get a clear scope — square footage, flake or metallic system, crack repair, and topcoat — before we book the install. No surprise line items after the grind.",
   },
   {
-    title: "Timeline Expectations You Can Count On",
+    title: "Most Garages, One to Two Days",
     text:
-      "We do not just promise a timeline. We deliver on it. Our proven project management process, experienced team coordination, and realistic scheduling keep your project on track. When we commit to a completion date, we mean it.",
+      "A typical residential garage is prepped, coated, and topcoated in a day or two. You are back on the floor for foot traffic quickly, and we tell you exactly when vehicles can return.",
   },
 ];
+
+const team = [
+  {
+    name: "Collin Lewis",
+    role: "Co-Owner / Customer Care / Accountant",
+    image: "/upscale-coatings/collin-lewis.png",
+    description:
+      "Collin is a Co-Owner at Upscale Coatings, managing customer relations and company finances to keep operations running smoothly. He focuses on delivering a great client experience while ensuring every project is handled with transparency, organization, and care.",
+  },
+  {
+    name: "Andrew Pavia",
+    role: "Sales / Estimates",
+    image: "/upscale-coatings/andrew-pavia.png",
+    description:
+      "Andrew is responsible for sales and on-site estimates at Upscale Coatings, working directly with customers to understand their needs and provide accurate, detailed project proposals. He focuses on clear communication and helping clients choose the right flooring solutions for their space and budget.",
+  },
+  {
+    name: "Dillon Geddes",
+    role: "Co-Owner / Project Manager",
+    image: "/upscale-coatings/dillon-geddes.png",
+    description:
+      "Dillon is a Co-Owner and Project Manager at Upscale Coatings, overseeing every project from start to finish to ensure top-tier quality and a seamless customer experience. He is committed to delivering durable, high-end epoxy solutions while maintaining clear communication and attention to detail throughout the process.",
+  },
+];
+
+const cornerDots: [number, number, number][] = [
+  [196, 16, 26],
+  [168, 10, 14],
+  [204, 48, 18],
+  [174, 40, 9],
+  [146, 22, 20],
+  [124, 8, 8],
+  [150, 52, 12],
+  [182, 68, 22],
+  [208, 88, 11],
+  [132, 44, 7],
+  [112, 28, 16],
+  [98, 10, 6],
+  [158, 86, 8],
+  [138, 74, 15],
+  [120, 60, 6],
+  [190, 108, 10],
+  [166, 114, 16],
+  [148, 100, 5],
+  [108, 50, 10],
+  [88, 24, 12],
+  [72, 8, 5],
+  [126, 92, 11],
+  [106, 78, 7],
+  [84, 58, 14],
+  [66, 36, 6],
+  [54, 16, 8],
+  [176, 132, 7],
+  [154, 126, 12],
+  [136, 112, 5],
+  [114, 96, 9],
+  [96, 80, 4],
+  [74, 64, 8],
+  [52, 46, 5],
+  [40, 26, 4],
+  [198, 64, 7],
+  [214, 30, 13],
+  [160, 18, 5],
+  [186, 46, 6],
+];
+
+const dotFloats = [
+  "0 0; 5 -4; -3 3; 0 0",
+  "0 0; -4 5; 3 -2; 0 0",
+  "0 0; 3 6; -5 -3; 0 0",
+  "0 0; -6 -3; 4 4; 0 0",
+];
+
+function CornerDots({ className }: { className: string }) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  return (
+    <svg viewBox="0 0 220 150" className={className} aria-hidden="true">
+      {cornerDots.map(([cx, cy, r], index) => (
+        <circle key={index} cx={cx} cy={cy} r={r} fill="white">
+          {!reduceMotion && (
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values={dotFloats[index % dotFloats.length]}
+              dur={`${9 + (index % 6)}s`}
+              begin={`${(index % 8) * 0.35}s`}
+              repeatCount="indefinite"
+              calcMode="spline"
+              keyTimes="0;0.33;0.66;1"
+              keySplines="0.45 0 0.55 1; 0.45 0 0.55 1; 0.45 0 0.55 1"
+            />
+          )}
+        </circle>
+      ))}
+    </svg>
+  );
+}
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -100,7 +134,7 @@ const Index = () => {
   const visibilityRatiosRef = useRef<number[]>(new Array(whyChooseItems.length).fill(0));
   const testimonialRef = useRef<HTMLDivElement>(null);
   
-  const fullText = "More than just a home builder, we are dream weavers";
+  const fullText = "More than a coating. A floor worth showing off.";
 
   // Custom hook for fade-in animation
   const useFadeIn = () => {
@@ -232,9 +266,9 @@ const Index = () => {
     <Layout>
       {/* Hero Section */}
       <Hero 
-        title="Designed for You, Built for Life"
-        subtitle="New home plans and thoughtful remodels built with care and precision."
-        backgroundVideoSrc="/foxcroft-hero.mp4"
+        title="Built for Utah, Made to Last"
+        subtitle="Epoxy garage floors, metallic coatings, and concrete systems that stand up to salt, sun, and daily traffic."
+        backgroundVideoSrc="/upscale-coatings/hero-video.mp4"
         darkerOverlay={true}
       />
 
@@ -249,30 +283,23 @@ const Index = () => {
           >
             <div>
               <h2 className="text-5xl md:text-4xl lg:text-5xl font-bold text-text-strong mb-8 leading-tight" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                Custom Home<br />
-                <span className="italic">Builders</span>
+                Epoxy<br />
+                <span className="italic">Floors</span>
               </h2>
             </div>
             <div>
                     <p className="text-base text-text mb-8 leading-relaxed">
-                      Bradford Custom Homes is the choice for discerning homeowners who demand transparency. Our homes don't just elevate wellbeing and craftsmanship; they inspire awe, endure as timeless masterpieces, and embody the unique legacy of those privileged enough to live within them.
+                      Upscale Coatings installs flake garage floors, metallic epoxy, waterproof decks, and commercial concrete systems across Utah. The work starts with honest prep and ends with a floor that is easy to clean, hard to stain, and finished like it belongs in the house.
                     </p>
               <div className="flex flex-col sm:flex-row gap-8">
-                <Link to="/contact" onClick={() => {
-                  setTimeout(() => {
-                    const formElement = document.getElementById('contact-form');
-                    if (formElement) {
-                      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                  }, 100);
-                }} className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity cursor-pointer">
-                  <div className="w-4 h-4 bg-text-strong"></div>
+                <span className="flex items-center gap-3 text-text-strong cursor-default">
+                  <div className="w-4 h-4 bg-accent-primary"></div>
                   <span className="text-sm font-medium uppercase tracking-wide">Get In Touch</span>
-                </Link>
-                <Link to="/gallery" className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity cursor-pointer">
-                  <div className="w-4 h-4 border-2 border-text-strong bg-bg-alt"></div>
+                </span>
+                <span className="flex items-center gap-3 text-text-strong cursor-default">
+                  <div className="w-4 h-4 border-2 border-accent-primary bg-transparent"></div>
                   <span className="text-sm font-medium uppercase tracking-wide">Discover Portfolio</span>
-                </Link>
+                </span>
               </div>
             </div>
           </div>
@@ -283,7 +310,7 @@ const Index = () => {
       {/* Gallery Images with Parallax - Full Width */}
       <div 
         className="overflow-hidden w-full pb-20" 
-        style={{backgroundColor: '#eae3d7'}}
+        style={{backgroundColor: '#1a1a1a'}}
       >
         {/* First Row - moves left */}
         <div 
@@ -294,12 +321,12 @@ const Index = () => {
           }}
         >
           {[
-            '/homepage-paralax-images/LaRuche_MacBuilt_17 Gilmer Way_Obie Entry-08.jpg',
-            '/homepage-paralax-images/58-Foxcroft Rd NW-58.jpg',
-            '/homepage-paralax-images/LaRuchePhoto-MacBuilt-147CarlSandersDr-Daytime-6.jpg',
-            '/homepage-paralax-images/31-Foxcroft Rd NW-31.jpg',
-            '/homepage-paralax-images/LaRuche_MacBuilt_17 Gilmer Way_Obie Entry-05.jpg',
-            '/homepage-paralax-images/18-Foxcroft Rd NW-18.jpg'
+            '/upscale-coatings/gallery-images/Garage.jpg',
+            '/upscale-coatings/gallery-images/Metallic.jpg',
+            '/upscale-coatings/custom-garage-floor-epoxy.png',
+            '/upscale-coatings/gallery-images/Garage(1).jpg',
+            '/upscale-coatings/metallic-2.png',
+            '/upscale-coatings/gallery-images/Waterproof%20Deck.jpg'
           ].map((src, idx) => (
             <div key={idx} className="flex-shrink-0 w-96 h-72 overflow-hidden">
               <img 
@@ -320,11 +347,11 @@ const Index = () => {
           }}
         >
           {[
-            '/homepage-paralax-images/LaRuchePhoto-MacBuilt-147CarlSandersDr-Daytime-2.jpg',
-            '/homepage-paralax-images/04-Foxcroft Rd NW-4.jpg',
-            '/homepage-paralax-images/LaRuchePhoto-MacBuilt-147CarlSandersDr-Daytime-12.jpg',
-            '/homepage-paralax-images/08-Foxcroft Rd NW-8.jpg',
-            '/homepage-paralax-images/LaRuche_MacBuilt_17 Gilmer Way_Obie Entry-00.jpg'
+            '/upscale-coatings/gallery-images/Garage(2).jpg',
+            '/upscale-coatings/gallery-images/Outdoor%20Epoxy%20Pad.jpg',
+            '/upscale-coatings/metallic-3.png',
+            '/upscale-coatings/gallery-images/Industrial%20Space.png',
+            '/upscale-coatings/basement-floor-coatings.png'
           ].map((src, idx) => (
             <div key={`row2-${idx}`} className="flex-shrink-0 w-96 h-72 overflow-hidden">
               <img 
@@ -338,7 +365,7 @@ const Index = () => {
       </div>
 
       {/* Why Choose Bradford - Header */}
-      <section className="pt-20 pb-40" style={{backgroundColor: '#eae3d7'}}>
+      <section className="pt-20 pb-40" style={{backgroundColor: '#1a1a1a'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             ref={whyChooseHeader.ref}
@@ -350,51 +377,34 @@ const Index = () => {
               Our Promise to You
             </h2>
             <p className="text-xl text-text max-w-2xl mx-auto">
-              Four core commitments that set Bradford Custom Homes apart: transparency, service excellence, budget certainty, and reliable timelines.
+              Four things homeowners and facility managers notice once the floor is down: prep, climate, price, and how little time the space is out of use.
             </p>
           </div>
         </div>
       </section>
 
       {/* Why Choose Bradford - Scrollytelling with full-width images */}
-      <section className="relative" style={{backgroundColor: '#F5F1ED'}}>
+      <section className="relative" style={{backgroundColor: '#33333380'}}>
         {/* Full-width background images */}
         <div className="absolute inset-0">
           {[
-            '/3rd-section.png', // Transparent & Frequent Communication
-            '/2nd-section.png', // Price Certainty You Can Trust
-            '/home-gallery/home-gallery-1.png', // High-Touch Organization
-            '/4th-home-page.jpg'  // Timeline Expectations
+            '/upscale-coatings/gallery-examples/Finished%20Charcoal%20Flake%20Epoxy%20Floor-3.png',
+            '/upscale-coatings/gallery-examples/Finished%20sandstone%20flake%20epoxy%20garage%20floor-2.png',
+            '/upscale-coatings/gallery-examples/Freshly%20finished%20blue-gray%20epoxy%20floor-4.png',
+            '/upscale-coatings/gallery-examples/Silver-graphite%20metallic%20epoxy%20garage%20floor-6.png'
           ].map((src, idx) => (
             <div
               key={idx}
               ref={(el) => (whyImageRefs.current[idx] = el)}
               data-index={idx}
-              className="h-[70vh] md:h-[80vh] lg:h-[70vh] w-full overflow-hidden relative"
+              className="h-[56vh] md:h-[64vh] lg:h-[56vh] w-full overflow-hidden relative"
             >
               <img
                 src={src}
-                alt={`Why Choose Bradford ${idx + 1}`}
+                alt={`Upscale Coatings floor ${idx + 1}`}
                 className="w-full h-full object-cover"
               />
-              {/* Dark overlay for text readability */}
-              <div className="absolute inset-0 bg-text-strong/40"></div>
-              {/* Gold stamp for first 2 sections */}
-              {idx < 2 && (
-                <img
-                  src="/gold-stamp.png"
-                  alt="Gold Award Winner"
-                  className="absolute bottom-8 right-8 w-20 md:w-24 lg:w-28 z-10"
-                />
-              )}
-              {/* Silver stamp for 3rd section */}
-              {idx === 2 && (
-                <img
-                  src="/silver-stamp.png"
-                  alt="Silver Award Winner"
-                  className="absolute bottom-8 right-8 w-20 md:w-24 lg:w-28 z-10"
-                />
-              )}
+              <div className="absolute inset-0 bg-black/50"></div>
             </div>
           ))}
         </div>
@@ -420,7 +430,7 @@ const Index = () => {
               </div>
 
               {/* Right: Spacer to maintain layout */}
-              <div className="h-[240vh] md:h-[280vh]">
+              <div className="h-[192vh] md:h-[224vh]">
                 {/* This div maintains the scroll height for the sticky positioning */}
               </div>
             </div>
@@ -429,7 +439,7 @@ const Index = () => {
       </section>
 
       {/* Our Services */}
-      <section className="pt-16 md:pt-0 pb-16" style={{backgroundColor: '#F5F1ED'}}>
+      <section className="pt-16 md:pt-0 pb-16" style={{backgroundColor: '#33333380'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             ref={servicesSection.ref}
@@ -442,65 +452,88 @@ const Index = () => {
             {/* Text content - 1/4 of row */}
             <div className="space-y-6 lg:col-span-2">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-strong" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                What We <span className="italic">Build</span>
+                What We <span className="italic">Coat</span>
               </h2>
               <div>
                 <p className="text-base text-text leading-relaxed">
-                  We design and build custom homes tailored to your lot, lifestyle, and vision. Our team also delivers refined renovations that improve flow, function, and everyday comfort.
+                  Flake garage floors are the workhorse. Metallic epoxy, waterproof decks, basement slabs, and commercial kitchens get the same prep and a system matched to traffic, moisture, and chemicals.
                 </p>
               </div>
               
               <div className="flex items-center gap-3 mt-6">
-                <Link to="/new-construction" className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity cursor-pointer">
-                  <div className="w-4 h-4 bg-text-strong"></div>
-                  <span className="text-sm font-medium uppercase tracking-wide">VIEW NEW BUILDS</span>
-                </Link>
+                <span className="flex items-center gap-3 text-text-strong cursor-default">
+                  <div className="w-4 h-4 bg-accent-primary"></div>
+                  <span className="text-sm font-medium uppercase tracking-wide">VIEW SERVICES</span>
+                </span>
               </div>
             </div>
 
             {/* Featured New Builds - two horizontal cards stacked */}
             <div className="lg:col-span-3 space-y-10">
-              {/* Project 1: Fox Croft */}
               <div>
                 <div className="w-full h-56 md:h-64 overflow-hidden bg-bg-muted">
                   <img 
-                    src="/fox-croft-photos/01-Foxcroft Rd NW-1.jpg"
-                    alt="Fox Croft"
+                    src="/upscale-coatings/gallery-examples/Pristine%20gray%20flake%20garage%20epoxy%20floor-1.png"
+                    alt="Flake epoxy garage floor"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="mt-4">
-                  <Link 
-                    to="/projects/fox-croft"
-                    className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity"
-                  >
-                    <div className="w-4 h-4 border-2 border-text-strong bg-transparent"></div>
-                    <span className="text-sm font-medium uppercase tracking-wide">Fox Croft</span>
-                  </Link>
+                  <span className="flex items-center gap-3 text-text-strong cursor-default">
+                    <div className="w-4 h-4 border-2 border-accent-primary bg-transparent"></div>
+                    <span className="text-sm font-medium uppercase tracking-wide">Garage Floors</span>
+                  </span>
                 </div>
               </div>
 
-              {/* Project 2: Stone Creek Interior */}
               <div>
                 <div className="w-full h-56 md:h-64 overflow-hidden bg-bg-muted">
                   <img 
-                    src="/project-stone-creek/205 Stone Creek Ct High Res_01.jpg"
-                    alt="Stone Creek Interior"
+                    src="/upscale-coatings/gallery-examples/Freshly%20Coated%20Concrete%20Driveway-5.png"
+                    alt="Outdoor concrete coating"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="mt-4">
-                  <Link 
-                    to="/projects/stone-creek"
-                    className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity"
-                  >
-                    <div className="w-4 h-4 border-2 border-text-strong bg-transparent"></div>
-                    <span className="text-sm font-medium uppercase tracking-wide">Stone Creek Interior</span>
-                  </Link>
+                  <span className="flex items-center gap-3 text-text-strong cursor-default">
+                    <div className="w-4 h-4 border-2 border-accent-primary bg-transparent"></div>
+                    <span className="text-sm font-medium uppercase tracking-wide">Outdoor Concrete</span>
+                  </span>
                 </div>
               </div>
             </div>
           </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden py-20" style={{ backgroundColor: "#dcc37c" }}>
+        <CornerDots className="pointer-events-none absolute -right-4 -top-6 w-40 md:w-52" />
+        <CornerDots className="pointer-events-none absolute -left-4 -top-6 w-40 md:w-52 -scale-x-100" />
+        <CornerDots className="pointer-events-none absolute -right-4 -bottom-6 w-40 md:w-52 -scale-y-100" />
+        <CornerDots className="pointer-events-none absolute -left-4 -bottom-6 w-40 md:w-52 rotate-180" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a1a1a] mb-14" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
+            The Team
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {team.map((member) => (
+              <article key={member.name} className="flex flex-col">
+                <div className="relative w-full" style={{ aspectRatio: "748 / 847" }}>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="absolute bottom-0 left-1/2 max-h-full max-w-full -translate-x-1/2 object-contain"
+                  />
+                </div>
+                <p className="mt-6 text-sm font-semibold uppercase tracking-wide text-[#1a1a1a]">
+                  {member.role}
+                </p>
+                <p className="mt-3 text-base leading-relaxed text-[#1a1a1a]/85">
+                  {member.description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -510,13 +543,13 @@ const Index = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url('/new-builds5.png')`,
+            backgroundImage: `url('/upscale-coatings/testimonials-banner.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="absolute inset-0 bg-text-strong/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         <div className="relative z-10 text-center text-white px-4">
@@ -529,11 +562,15 @@ const Index = () => {
             ))}
             {isTyping && <span className="animate-pulse">|</span>}
           </h2>
+          <span className="inline-flex items-center gap-3 mt-8 text-white cursor-default">
+            <span className="w-4 h-4 bg-accent-primary"></span>
+            <span className="text-sm font-medium uppercase tracking-wide">Read Testimonials</span>
+          </span>
         </div>
       </section>
 
       {/* Our Gallery */}
-      <section className="py-24 relative overflow-hidden" style={{backgroundColor: '#eae3d7'}}>
+      <section className="py-24 relative overflow-hidden" style={{backgroundColor: '#1a1a1a'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading and copy */}
           <div 
@@ -546,13 +583,12 @@ const Index = () => {
               Our Gallery
             </h2>
             <p className="text-sm text-text mb-6">
-              Explore our gallery to see inspired new builds and elevated remodels from across our portfolio. 
-              Discover thoughtful details, beautiful materials, and moments that make a house feel like home.
+              Garages, metallic pours, waterproof decks, and shop floors from across the Wasatch Front. Same prep standard, different finish for how the space is used.
             </p>
-            <Link to="/gallery" className="flex items-center gap-3 text-text-strong hover:opacity-80 transition-opacity">
-              <div className="w-4 h-4 bg-text-strong"></div>
+            <span className="flex items-center gap-3 text-text-strong cursor-default">
+              <div className="w-4 h-4 bg-accent-primary"></div>
               <span className="text-sm font-medium uppercase tracking-wide">VIEW ALL IMAGES</span>
-            </Link>
+            </span>
           </div>
         </div>
 
@@ -566,20 +602,12 @@ const Index = () => {
           <Carousel opts={{ loop: true, align: 'start' }} className="w-full">
             <CarouselContent>
               {[
-                '/new-builds6.jpg',
-                '/home-gallery/home-gallery-3.png',
-                '/new-builds7.jpg',
-                '/home-gallery/home-gallery-4.png',
-                '/home-gallery/home-gallery-5.png',
-                '/home-gallery/home-gallery-6.png',
-                '/home-gallery/home-gallery-7.png',
-                '/home-gallery/home-gallery-8.png',
-                '/home-gallery/home-gallery-9.png',
-                '/home-gallery/home-gallery-10.png',
-                '/home-gallery/home-gallery-11.png',
-                '/home-gallery/home-gallery-12.png',
-                '/home-gallery/home-gallery-13.png',
-                '/home-gallery/home-gallery-14.png'
+                '/upscale-coatings/gallery-examples/Finished%20ivory%20patio%20under%20timber%20pergola-6.png',
+                '/upscale-coatings/gallery-examples/Fresh%20Granite-Flake%20Epoxy%20Garage%20Floor-5.png',
+                '/upscale-coatings/gallery-examples/Freshly%20Coated%20Walkway%20and%20Steps-3.png',
+                '/upscale-coatings/gallery-examples/Freshly%20Finished%20Greige%20Concrete%20Patio-1.png',
+                '/upscale-coatings/gallery-examples/Graphite%20Gray%20Coated%20Front%20Porch-4.png',
+                '/upscale-coatings/gallery-examples/Natural%20Sand-Tone%20Pool%20Deck-2.png'
               ].map((src, idx) => (
                 <CarouselItem key={idx} className="basis-[85%] md:basis-[75%] lg:basis-[70%]">
                   <div className="w-full h-[26rem] md:h-[32rem] lg:h-[36rem] overflow-hidden">
@@ -592,8 +620,8 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="right-40 bottom-6 top-auto left-auto -translate-y-0 bg-white/90 hover:bg-white text-text-strong shadow-sm ring-2 ring-accent-sand/30 hover:ring-accent-sand/50" />
-            <CarouselNext className="right-28 bottom-6 top-auto -translate-y-0 bg-white/90 hover:bg-white text-text-strong shadow-sm ring-2 ring-accent-sand/30 hover:ring-accent-sand/50" />
+            <CarouselPrevious className="right-40 bottom-6 top-auto left-auto -translate-y-0 bg-accent-primary hover:bg-accent-primary-hover text-[#1a1a1a] shadow-sm border-0" />
+            <CarouselNext className="right-28 bottom-6 top-auto -translate-y-0 bg-accent-primary hover:bg-accent-primary-hover text-[#1a1a1a] shadow-sm border-0" />
           </Carousel>
         </div>
       </section>

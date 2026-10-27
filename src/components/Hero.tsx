@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-kitchen-new.jpg";
 
 interface HeroProps {
   title?: string;
@@ -12,9 +10,9 @@ interface HeroProps {
 }
 
 export default function Hero({
-  title = "Crafted Remodels. Enduring Value.",
-  subtitle = "Transform your home with expert kitchen, bathroom, and whole-home remodeling services.",
-  backgroundImage = heroImage,
+  title = "Epoxy Floors, Built to Last",
+  subtitle = "Garage flake systems, metallic coatings, and concrete finishes for Utah homes and businesses.",
+  backgroundImage = "/upscale-coatings/custom-garage-floor-epoxy.png",
   backgroundVideoSrc,
   hideCTA = false,
   darkerOverlay = false,
@@ -49,7 +47,7 @@ export default function Hero({
             loop
             playsInline
           />
-          <div className={`absolute inset-0 ${darkerOverlay ? 'bg-text-strong/60' : 'bg-text-strong/40'}`}></div>
+          <div className={`absolute inset-0 ${darkerOverlay ? 'bg-black/60' : 'bg-black/50'}`}></div>
         </div>
       ) : (
         <div 
@@ -62,7 +60,7 @@ export default function Hero({
             transform: `translateY(${scrollY * 0.4}px)`,
           }}
         >
-          <div className={`absolute inset-0 ${darkerOverlay ? 'bg-text-strong/60' : 'bg-text-strong/40'}`}></div>
+          <div className={`absolute inset-0 ${darkerOverlay ? 'bg-black/60' : 'bg-black/50'}`}></div>
         </div>
       )}
 
@@ -70,15 +68,10 @@ export default function Hero({
       <div className="absolute bottom-20 md:bottom-28 lg:bottom-32 left-0 right-0 z-10">
         <div className="w-[80%] mx-auto">
           <h1 className="text-white leading-tight mb-6" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-            {title === "Designed for You, Built for Life" ? (
+            {title === "Built for Utah, Made to Last" ? (
               <>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Designed for You,</span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl italic">Built for Life</span>
-              </>
-            ) : title === "Custom Home Builders" ? (
-              <>
-                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Custom Home</span>
-                <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic">Builders</span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Built for Utah,</span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl italic">Made to Last</span>
               </>
             ) : (
               <span className="block text-5xl md:text-6xl lg:text-7xl xl:text-8xl">{title}</span>
@@ -90,18 +83,9 @@ export default function Hero({
             </p>
           )}
           {!hideCTA && (
-            <Link to="/contact" onClick={() => {
-              setTimeout(() => {
-                const formElement = document.getElementById('contact-form');
-                if (formElement) {
-                  formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }, 100);
-            }}>
-              <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-white/90 transition-colors">
-                Inquire about Availability
-              </button>
-            </Link>
+            <button type="button" className="bg-accent-primary text-[#1a1a1a] px-6 py-3 rounded-full font-medium cursor-default">
+              Get a Free Quote
+            </button>
           )}
         </div>
       </div>

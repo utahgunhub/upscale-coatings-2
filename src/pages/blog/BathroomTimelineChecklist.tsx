@@ -2,14 +2,14 @@ import Layout from "@/components/Layout";
 import { useEffect } from "react";
 
 export const meta = {
-  slug: "/blog/bathroom-remodel-timeline-and-checklist",
-  title: "Bathroom Remodel Timeline + Checklist",
+  slug: "/blog/what-to-expect-epoxy-install-utah",
+  title: "What to Expect on Epoxy Install Day",
   description:
-    "Plan a bathroom remodel with realistic timelines and a step-by-step checklist. Understand phases, inspections, and how to prepare your home for a smooth project.",
-  author: "Bradford Remodels",
-  date: "2025-10-16",
-  readTimeMinutes: 8,
-  heroImage: "/about-hero.png",
+    "A plain timeline for an epoxy floor install in Utah: what we do to the slab, how long the space is out of use, and when you can walk and park on it.",
+  author: "Upscale Coatings",
+  date: "2026-01-29",
+  readTimeMinutes: 6,
+  heroImage: "/upscale-coatings/blog-images/what-to-expect-epoxy-deck-coating-utah-1.png",
 };
 
 export default function BathroomTimelineChecklist() {
@@ -21,8 +21,7 @@ export default function BathroomTimelineChecklist() {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="relative h-[40vh] md:h-[48vh] flex items-end justify-center overflow-hidden">
+      <section className="relative h-[60vh] flex items-end justify-center overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -34,11 +33,8 @@ export default function BathroomTimelineChecklist() {
         >
           <div className="absolute inset-0 bg-black/45" />
         </div>
-
-        {/* Title intentionally not displayed on hero */}
       </section>
 
-      {/* Meta bar */}
       <section className="bg-bg">
         <div className="w-[80%] max-w-3xl mx-auto py-6">
           <div className="flex flex-wrap items-center gap-4 text-sm text-text-strong/70">
@@ -51,83 +47,42 @@ export default function BathroomTimelineChecklist() {
         </div>
       </section>
 
-      {/* Article */}
       <section className="py-6 md:pt-10 md:pb-20 bg-bg">
-        <div className="w-[80%] max-w-3xl mx-auto prose prose-neutral md:prose-lg prose-headings:tracking-tight prose-headings:leading-tight prose-h2:mt-10 prose-h2:mb-4 prose-p:leading-relaxed prose-ul:leading-relaxed prose-ol:leading-relaxed">
+        <div className="w-[80%] max-w-3xl mx-auto prose prose-invert md:prose-lg prose-headings:tracking-tight prose-headings:leading-tight prose-h2:mt-10 prose-h2:mb-4 prose-p:leading-relaxed prose-ul:leading-relaxed">
           <h1 className="mb-2">{meta.title}</h1>
           <p className="lead text-text/80">{meta.description}</p>
           <p>
-            Remodeling a bathroom touches nearly every trade in a home—framing, plumbing, electrical, waterproofing,
-            tile, glass, millwork, and painting. Because so many details converge in a compact space, planning and
-            sequencing are the difference between a smooth project and frustrating delays. This guide outlines a clear
-            timeline and checklist so you know what happens when, how to prepare, and how to keep decisions moving.
+            An epoxy install is loud for a few hours and then it is waiting. The work that matters happens before the color goes down. Here is the sequence we use on garages, basements, and most indoor slabs along the Wasatch Front.
           </p>
-          <h2>Phase 1: Design, Scope, and Selections</h2>
+          <h2>Before we arrive</h2>
           <p>
-            The first and most important phase is clarifying scope and making key selections. Expect 2–6 weeks depending
-            on complexity and decision pace. During this time, we measure the space, document existing conditions, and
-            align on layout—vanity size and placement, shower configuration, tub inclusion, storage, and lighting.
-            Selections include tile (field, mosaic, thresholds), plumbing fixtures (valves, trim, drains), cabinetry,
-            countertops, mirrors, lighting, and hardware. Early choices keep downstream work efficient and prevent change
-            orders once rough‑in begins.
+            The space needs to be empty. Cars out, shelves pulled off the floor, and a path for grinders and materials. If the garage shares a wall with living space, plan on dust control and a bit of noise while we grind. We confirm color, flake coverage, and the cure window before the day starts.
           </p>
-          <h2>Phase 2: Permits and Ordering</h2>
+          <h2>Grind, repair, prime</h2>
           <p>
-            With drawings and selections in hand, we submit for permits where required and order long‑lead materials.
-            Lead times vary: custom vanities can run 6–10 weeks, specialty glass 2–3 weeks after tile is set, and
-            plumbing fixtures 2–4 weeks depending on brand. We recommend not starting demolition until vanities and key
-            fixtures are confirmed with ship dates to minimize downtime.
+            Diamond grinding removes laitance, sealer, and the failed coating someone rolled on years ago. Cracks are chased and filled. A primer matched to the slab goes down so the base coat has open concrete to grab. This is the longest, least photogenic part of the job, and it is the reason the floor stays put.
           </p>
-          <h2>Phase 3: Demolition and Rough‑In</h2>
+          <h2>Base coat and broadcast</h2>
           <p>
-            Demolition usually takes 1–3 days. Containment and protection are critical—expect dust barriers, floor
-            protection, and daily cleanup. Rough‑in follows: framing adjustments for niches or benches, blocking for
-            grab bars or glass hinges, plumbing supply and drain relocation, and electrical for lighting layers and
-            receptacles. City inspections typically occur after plumbing and electrical rough‑in. Your project manager
-            will coordinate access and documentation so approvals are timely.
+            Epoxy base goes on, then flake is thrown to refusal for a full broadcast, or more lightly for a speckled look. Metallic floors are worked while the resin is open so the pigment moves instead of sitting in puddles. Edges, door tracks, and the apron get the same attention as the middle of the bay.
           </p>
-          <h2>Phase 4: Waterproofing and Tile</h2>
+          <h2>Topcoat and the wait</h2>
           <p>
-            Bathrooms succeed or fail on waterproofing. We use proven, manufacturer‑approved systems for shower pans,
-            walls, and niches, and we flood‑test pans before tile. Tile setting can take 1–3 weeks depending on scale and
-            pattern complexity. Large format slabs and intricate mosaics require additional time for layout and cuts.
-            Heated floors, if included, are installed and tested before tile.
+            After excess flake is scraped and vacuumed, a clear topcoat seals the floor. Then it cures. Foot traffic is usually fine within a day. Vehicles wait longer — often about 72 hours — because a hot tire can imprint a coating that is hard to the touch but not fully cured. We will tell you the exact window for your system and the weather that day.
           </p>
-          <h2>Phase 5: Fixtures, Glass, and Finishes</h2>
-          <p>
-            Once tile cures, we set the vanity, tops, and plumbing trim. Mirrors, lighting, accessories, and specialty
-            hardware are installed. Shower glass is templated after tile and typically returns within two to three weeks; 
-            planning for this lead time avoids surprises near the end.
-          </p>
-          <h2>Phase 6: Punchlist and Turnover</h2>
-          <p>
-            Final paint touch‑ups, caulking, and adjustments bring the space together. We walk the bathroom with you, note
-            any details, and complete a documented punchlist. You will receive care guidance for stone and grout along
-            with product manuals and warranty information.
-          </p>
-          <h2>Checklist: How to Prepare</h2>
+          <h2>Checklist</h2>
           <ul>
-            <li>Confirm all selections and approve the final scope before demolition.</li>
-            <li>Set a realistic contingency (5–10%) for unforeseen conditions in older homes.</li>
-            <li>Arrange a temporary bath plan if this is your primary bathroom.</li>
-            <li>Order long‑lead items early and verify rough‑in specs with the field team.</li>
-            <li>Plan for glass lead time; expect a short gap between tile completion and glass install.</li>
+            <li>Empty the floor and move vehicles before we arrive.</li>
+            <li>Pick the flake or metallic color before install day.</li>
+            <li>Keep people and pets off the wet coating.</li>
+            <li>Wait for the vehicle cure time even if the floor looks done.</li>
+            <li>Skip the pressure washer for the first stretch. Sweeping and a damp mop are enough.</li>
           </ul>
-          <h2>Typical Duration</h2>
           <p>
-            For a hall or guest bath, on‑site work often runs 3–6 weeks once materials are on hand. Primary suites with
-            larger showers, heated floors, custom vanities, and stone features typically take 6–10 weeks. With clear
-            selections and coordinated deliveries, we keep momentum high and protect quality at every step.
-          </p>
-          <p>
-            If you are planning a remodel in Atlanta or Charleston, our team can provide a focused consultation with
-            budget ranges and a timeline tailored to your scope and home. We make the process transparent, predictable,
-            and craftsmanship‑forward.
+            Outdoor decks follow a similar idea — clean, repair, coat, cure — with products that can live in sun and snow. If you want a date, send the square footage and a couple of photos of the slab.
           </p>
         </div>
       </section>
     </Layout>
   );
 }
-
-

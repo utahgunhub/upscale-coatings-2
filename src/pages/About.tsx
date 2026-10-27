@@ -2,130 +2,58 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
-  ChefHat,
-  Home,
-  Star,
   MapPin,
-  Pencil,
+  Layers,
+  Sparkles,
+  ShieldCheck,
   LifeBuoy
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
-const differenceItems = [
+const coatingSteps = [
   {
-    title: "Precision Craftsmanship",
-    description: "Every detail matters. Our skilled craftsmen bring decades of experience to ensure flawless execution from start to finish.",
+    icon: <MapPin size={32} />,
+    title: "Walk the Slab",
+    subtitle: "Scope, color, and moisture",
+    description: "We measure the space, look at cracks and moisture, and talk through flake, metallic, or a commercial system. You leave with a clear scope before anyone grinds."
   },
   {
-    title: "Client-First Focus",
-    description: "Your vision drives everything we do. We listen, collaborate, and keep you informed every step of the way.",
+    icon: <Layers size={32} />,
+    title: "Grind and Repair",
+    subtitle: "The step cheap kits skip",
+    description: "Diamond grinding opens the concrete. Cracks get filled. A moisture-minded primer goes down so the coating has something real to hold onto."
   },
   {
-    title: "Proven Process",
-    description: "Our systematic approach eliminates surprises and ensures your project stays on schedule and within budget.",
-  }
-];
-
-const bradfordMethod = [
-  {
-    icon: <ChefHat size={32} />,
-    title: "Discovery & Consultation",
-    subtitle: "Understanding your vision",
-    description: "We start by listening. Your needs, dreams, and lifestyle guide our approach to creating the perfect space for your family."
+    icon: <Sparkles size={32} />,
+    title: "Base Coat and Broadcast",
+    subtitle: "Color goes in while it's wet",
+    description: "Industrial epoxy is rolled or poured, then flake is broadcast full or partial — or metallic pigment is worked across the floor until the movement looks right."
   },
   {
-    icon: <Pencil size={32} />,
-    title: "Design & Architecture",
-    subtitle: "Bringing plans to life",
-    description: "Our design team translates your vision into detailed plans, combining aesthetic beauty with practical functionality."
-  },
-  {
-    icon: <Home size={32} />,
-    title: "Precision Construction",
-    subtitle: "Expert execution at every turn",
-    description: "Skilled craftsmen bring the plans to reality with meticulous attention to quality, timeline, and your daily comfort."
-  },
-  {
-    icon: <Star size={32} />,
-    title: "Final Walkthrough",
-    subtitle: "Obsessed with the details",
-    description: "We inspect every corner, ensuring perfection before you see it. Nothing is complete until it exceeds your expectations."
+    icon: <ShieldCheck size={32} />,
+    title: "Clear Topcoat",
+    subtitle: "The layer that takes the abuse",
+    description: "A UV-stable polyaspartic or polyurethane topcoat locks in the color and stands up to hot tires, salt, oil, and the sun that hits Utah patios."
   },
   {
     icon: <LifeBuoy size={32} />,
-    title: "Ongoing Support",
-    subtitle: "Here for you, even after move-in",
-    description: "Our relationship doesn't end at completion. We're always here to support you and ensure your satisfaction for years to come."
+    title: "Cure and Care",
+    subtitle: "When you can park again",
+    description: "We walk the floor with you, point out the cure window, and leave care notes. Foot traffic comes back fast. Vehicles wait until the coating says so."
   }
 ];
 
-const teamMembers = [
-  {
-    name: "Brad Robinson",
-    title: "President",
-    image: "/team-pics/brad.jpg"
-  },
-  {
-    name: "Cody Shiver",
-    title: "Chief Financial Officer",
-    image: "/team-pics/cody.png"
-  },
-  {
-    name: "Ryan MacDowell",
-    title: "Director of Operations",
-    image: "/team-pics/ryan-macdowell.jpg.webp"
-  },
-  {
-    name: "Marlon Hurtado",
-    title: "VP of Operations",
-    image: "/team-pics/marlon.jpg.webp"
-  },
-  {
-    name: "Justin Hill",
-    title: "Pre-Construction Manager",
-    image: "/team-pics/justin-hill.jpg"
-  },
-  {
-    name: "Connor Lipham",
-    title: "Project Manager",
-    image: "/team-pics/connor-lipham.jpg.webp"
-  },
-  {
-    name: "Will Cronic",
-    title: "Project Manager",
-    image: "/team-pics/will-chronic.png"
-  },
-  {
-    name: "Kevin Nguyen",
-    title: "Marketing Manager",
-    image: "/team-pics/kevin-nguyen.jpg.webp"
-  },
-  {
-    name: "Kelly Overcash",
-    title: "Office Manager",
-    image: "/team-pics/kelly-overcash.jpg"
-  }
-];
-
-const serviceAreas = [
-  {
-    city: "Atlanta",
-    state: "Georgia",
-    description: "Serving the metro area and surrounding communities",
-    image: "/home-gallery/home-gallery-1.png"
-  },
-  {
-    city: "Charleston",
-    state: "South Carolina",
-    description: "Historic charm meets modern living",
-    image: "/home-gallery/home-gallery-2.png"
-  },
-  {
-    city: "Highlands",
-    state: "North Carolina",
-    description: "Mountain retreats and luxury escapes",
-    image: "/home-gallery/home-gallery-3.png"
-  }
+const flakeColors = [
+  { name: "Domino", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Domino.png" },
+  { name: "Nightfall", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Nightfall.png" },
+  { name: "Shoreline", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Shoreline.png" },
+  { name: "Tidal Wave", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Tidal%20Wave.png" },
+  { name: "Gravel", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Gravel.png" },
+  { name: "Slate", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Slate.png" },
+  { name: "Quartzite", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Quartzite.png" },
+  { name: "Orbit", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Orbit.png" },
+  { name: "Outback", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Outback.png" },
+  { name: "Cabin Fever", title: "Flake blend", image: "/upscale-coatings/new-flake-colors/Color%20Name_%20Cabin%20Fever.png" },
 ];
 
 export default function About() {
@@ -230,7 +158,7 @@ export default function About() {
 
         // Calculate which step we're on based on position
         const progress = iconTop / containerHeight;
-        const stepCount = bradfordMethod.length;
+        const stepCount = coatingSteps.length;
         const stepIndex = Math.max(0, Math.min(stepCount - 1, Math.floor(progress * stepCount)));
         setActiveStepIndex(stepIndex);
 
@@ -256,7 +184,7 @@ export default function About() {
   const [typewriterText, setTypewriterText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const typewriterRef = useRef<HTMLDivElement>(null);
-  const fullText = "Choose Bradford for excellence, expertise, and a team dedicated to turning your dreams into reality.";
+  const fullText = "A floor that stands up to Utah winters, road salt, and the way you actually use the space.";
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -290,47 +218,36 @@ export default function About() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative h-[90vh] md:h-screen flex items-end justify-center overflow-hidden">
+      <section className="relative h-[60vh] flex items-end justify-center overflow-hidden">
         {/* Background */}
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url('/fox-croft-photos/01-Foxcroft Rd NW-1.jpg')`,
+            backgroundImage: `url('/upscale-coatings/gallery-images/Garage(2).jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
         >
           {/* Overlay */}
-          <div className="absolute inset-0 bg-text-strong/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
 
         {/* Text at bottom left - aligned with navbar */}
-        <div className="absolute bottom-20 md:bottom-28 lg:bottom-32 left-0 right-0 z-10">
-          <div className="w-[80%] mx-auto">
-            <h1 className="text-white leading-tight mb-6" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">Meet</div>
-              <div className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl italic">Bradford</div>
+        <div className="absolute bottom-16 left-0 right-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-white leading-tight mb-4" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
+              <div className="text-4xl md:text-5xl lg:text-6xl">About</div>
             </h1>
-            <p className="text-white/90 text-lg md:text-xl lg:text-2xl mb-6 max-w-xl">Crafted by a team that treats your home like our own.</p>
-            <Link to="/contact" onClick={() => {
-              setTimeout(() => {
-                const formElement = document.getElementById('contact-form');
-                if (formElement) {
-                  formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }, 100);
-            }}>
-              <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-white/90 transition-colors">
-                Schedule Your Private Consultation
-              </button>
-            </Link>
+            <p className="text-white/90 text-lg md:text-xl max-w-xl">
+              Epoxy floors finished the way we'd want them in our own garage.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Our Difference - Clean Layout */}
-      <section id="difference" className="py-20" style={{backgroundColor: '#F5F1ED'}}>
+      <section id="difference" className="py-20" style={{backgroundColor: '#33333380'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             ref={differenceSection.ref}
@@ -348,7 +265,7 @@ export default function About() {
             </div>
             <div>
               <p className="text-base text-text leading-relaxed">
-                Our skilled craftsmen bring decades of experience to ensure flawless execution from start to finish. Your vision drives everything we do—we listen, collaborate, and keep you informed every step of the way. Our systematic approach eliminates surprises and ensures your project stays on schedule and within budget.
+                Upscale Coatings is a Utah epoxy crew. We don't roll a hardware-store kit over a dirty slab. Every floor is ground, repaired, primed, coated, and topcoated with materials picked for freeze-thaw, road salt, and the UV that beats on outdoor concrete.
               </p>
             </div>
           </div>
@@ -361,7 +278,7 @@ export default function About() {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(/bradford-method-bg.png)`,
+            backgroundImage: `url(/upscale-coatings/gallery-images/Metallic.jpg)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -378,16 +295,16 @@ export default function About() {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              The Bradford Method
+              The Coating Process
             </h2>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl">
-              Our proven 5-step process ensures your project exceeds expectations
+              Five steps between a stained slab and a floor you can park on
             </p>
           </div>
 
           <div ref={timelineContainerRef} className="relative">
             {/* Timeline line - desktop only */}
-            <div className="hidden md:block absolute left-16 top-0 bottom-0 w-1 bg-white/40" />
+            <div className="hidden md:block absolute left-16 top-0 bottom-0 w-1 bg-[#d7b047]/70" />
 
             {/* Icon that moves smoothly along the timeline */}
             {showFixedIcon && (
@@ -395,7 +312,7 @@ export default function About() {
                 className="hidden md:flex absolute left-16 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center shadow-2xl z-50"
                 style={{
                   top: `${iconTopPosition}px`,
-                  backgroundColor: '#f5f5f5',
+                  backgroundColor: '#d7b047',
                   boxShadow: '0 10px 40px rgba(0,0,0,0.2)',
                   willChange: 'top'
                 }}
@@ -406,20 +323,20 @@ export default function About() {
               </div>
             )}
 
-            {bradfordMethod.map((step, index) => (
+            {coatingSteps.map((step, index) => (
               <div
                 key={index}
                 className="method-step relative mb-8 last:mb-0 md:pl-32"
               >
                 <div 
-                  className={`bg-white p-8 shadow-md transition-all duration-700 hover:shadow-xl max-w-5xl ${
+                  className={`bg-[#1a1a1a]/85 p-8 shadow-md transition-all duration-700 hover:shadow-xl max-w-5xl ${
                     activeStepIndex >= index ? 'opacity-90' : 'opacity-50'
                   }`}
                   style={{
                     transform: activeStepIndex >= index ? 'scale(1)' : 'scale(0.95)'
                   }}
                 >
-                  <div className="mb-6 text-black">
+                  <div className="mb-6 text-[#d7b047]">
                     {step.icon}
                   </div>
                   
@@ -437,18 +354,18 @@ export default function About() {
       </section>
 
       {/* Team Profiles */}
-      <section id="team" className="py-20" style={{backgroundColor: '#F5F1ED'}}>
+      <section id="team" className="py-20" style={{backgroundColor: '#33333380'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-text-strong mb-12 text-center">
-              Get to Know Our Team
+              Flake Colors
             </h2>
             
             <div 
               ref={teamSectionRef}
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8"
             >
-              {teamMembers.map((member, index) => {
+              {flakeColors.map((member, index) => {
                 const offset = index % 2 === 0 ? -12 : 12;
                 const currentOffset = offset * (1 - teamParallax);
                 
@@ -481,12 +398,12 @@ export default function About() {
       </section>
 
       {/* Why Bradford - Alternating Layout */}
-      <section className="pt-20 pb-10" style={{backgroundColor: 'rgb(234, 227, 215)'}}>
+      <section className="pt-20 pb-10" style={{backgroundColor: '#1a1a1a'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text-strong mb-4" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-              Why <span className="italic">Bradford?</span>
+              Why <span className="italic">Upscale?</span>
             </h2>
           </div>
 
@@ -500,18 +417,18 @@ export default function About() {
               }`}
             >
               <h3 className="text-3xl md:text-4xl lg:text-5xl text-text-strong mb-6 leading-tight" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                Dream Weavers &{' '}
+                Prep First,{' '}
                 <span className="italic block mt-2">
-                  Architects of Imagination
+                  Then the Pretty Part
                 </span>
               </h3>
               
               <p className="text-base md:text-lg text-text leading-relaxed mb-6">
-                We are a team of dedicated professionals driven by a passion for excellence in crafting homes as unique as the people who live in them.
+                Most failed epoxy jobs fail in the first hour, when someone coats over dust, sealer, or a damp slab. We grind until the concrete is open, then build the system on top of that.
               </p>
               
               <p className="text-base md:text-lg text-text leading-relaxed">
-                Our commitment to quality, innovation, and customer satisfaction sets us apart. We are partners in creating the homes you've always envisioned.
+                Color is the fun part — full flake, partial flake, or a metallic pour — and it only lasts if the layers under it were done on purpose.
               </p>
             </div>
 
@@ -519,8 +436,8 @@ export default function About() {
             <div className="order-2 mb-8 lg:mb-0">
               <div className="overflow-hidden rounded-xl shadow-lg h-[360px]">
                 <img
-                  src="/new-builds5.png"
-                  alt="Dream Weavers & Architects of Imagination"
+                  src="/upscale-coatings/gallery-images/Hand%20Troweling%20For%20Resurfacing%20Service.jpg"
+                  alt="Hand troweling a concrete surface before coating"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -533,8 +450,8 @@ export default function About() {
             <div className="order-2 lg:order-1">
               <div className="overflow-hidden rounded-xl shadow-lg h-[360px]">
                 <img
-                  src="/new-builds6.jpg"
-                  alt="Your Concerns are our Concerns"
+                  src="/upscale-coatings/custom-garage-floor-epoxy.png"
+                  alt="Finished flake epoxy garage floor"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -553,11 +470,11 @@ export default function About() {
               </h3>
               
               <p className="text-base md:text-lg text-text leading-relaxed mb-6">
-                We provide a First Class Experience, keeping you informed and connected throughout your project.
+                You get a straight answer on cure time, what the floor can take, and what it should not. Hot tires, snowmelt, and a pressure washer are part of the conversation before we book the day.
               </p>
               
               <p className="text-base md:text-lg text-text leading-relaxed">
-                Communication is key. Your dedicated project manager and superintendent ensure quick response times from start to finish.
+                Quotes are free. Most garage installs are one to two days. Commercial work is scheduled around the hours you can give the floor up.
               </p>
             </div>
           </div>
@@ -573,7 +490,7 @@ export default function About() {
       </section>
 
       {/* Service Areas - Map View */}
-      <section className="py-20 relative overflow-hidden" style={{backgroundColor: '#1A120A'}}>
+      <section className="py-20 relative overflow-hidden" style={{backgroundColor: '#333333'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-start gap-12">
             {/* Left: Copy */}
@@ -584,11 +501,16 @@ export default function About() {
               }`}
             >
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 italic" style={{ fontFamily: "'PP Editorial Old', serif", fontWeight: 400 }}>
-                Where We Build
+                Where We Coat
               </h2>
               <p className="text-lg md:text-xl text-white/90 max-w-2xl mb-8">
-                Atlanta, Georgia / Charleston, South Carolina / Surrounding Areas
+                Salt Lake City, Utah County, Ogden, and the towns between them along the Wasatch Front.
               </p>
+              <div className="flex flex-col gap-3 mb-8 text-white">
+                <Link to="/salt-lake-city" className="hover:text-white/80">Salt Lake County</Link>
+                <Link to="/utah-county" className="hover:text-white/80">Utah County</Link>
+                <Link to="/ogden" className="hover:text-white/80">Ogden & Davis County</Link>
+              </div>
               <Link to="/contact" onClick={() => {
                 setTimeout(() => {
                   const formElement = document.getElementById('contact-form');
@@ -597,8 +519,8 @@ export default function About() {
                   }
                 }, 100);
               }}>
-                <Button className="bg-white text-text-strong hover:bg-white/90 px-8 py-6 text-base rounded-full">
-                  Start Your Journey
+                <Button className="bg-accent-primary text-[#1a1a1a] hover:bg-accent-primary-hover px-8 py-6 text-base rounded-full">
+                  Request a Quote
                 </Button>
               </Link>
             </div>
@@ -607,9 +529,9 @@ export default function About() {
             <div className="lg:col-span-7">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/map.png" 
-                  alt="Service area map showing Atlanta, Charleston, and surrounding areas"
-                  className="w-full h-auto"
+                  src="/upscale-coatings/gallery-images/Garage(3).jpg" 
+                  alt="Finished epoxy garage floor in Utah"
+                  className="w-full h-auto object-cover min-h-[280px]"
                 />
               </div>
             </div>
